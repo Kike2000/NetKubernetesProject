@@ -1,0 +1,97 @@
+ASP.NET Core y Angular en Kubernetes | Google Cloud Platform Curs
+
+Docker:
+podemos crear contenedores y empaquetar aplicaciones y desplegarlos en cualquier entorno
+
+Ventajas:
+Retorno de inversión- Ahorro de tiempo
+Más velocidad
+Aislamiento y seguridad
+Facilita el testing
+Portabilidad
+Facilita el despliegue de apps al entorno de producción
+
+Docker Engine: Es el ambiente en el cual se ejecuta la distribución de Linux Ubuntu, por defecto Docker no puede ejecutarse en Windows de manera nativa.
+
+Docker Desktop: Su objetivo es asegurarse que el docker engine fue instalado correctamente y administrar su estado gracias a un proceso generado en su interior denominado Daemon.
+
+Docker Hub: Servicio para poder subir imágenes a la nube.
+
+Docker Compose: Herramienta para poder administrar containers
+
+Kubernetes:
+Similar al docker compose..
+
+Kernel: Encargo de ejecutar todos los procesos de software, es el intermediario entre los mprogramas que se están ejecutando en el S.O y los recursos del hardware
+
+Namespacing: Podemos aislar los recursos de hardware de nuestra computadora por proceso invocado en el SO.
+
+Control Groups: limita los recurso utilizados por proceso
+
+Container: Es un proceso que tiene un grupo de recursos de sofwate y hardware asignados exclusivamente para él. Su objetivo es la ejecución de un programa, lo que hace es reservar un segmento de hardware y software de tu computadora con el objetivo de ejecutar a dicho programa, utilizando el kernel
+
+Imagen: Archivo de tipo configuración que se encarga de crear un container, estamos hablando de un file System Snapshot
+
+Actividad de background:
+1.- Kernel aísla una pequeña sección del disco duro y la habilita para que solo el container "X" la ocupe
+2.- El Snapshot es copiado y pegado al interior de este espacio asilado del disco duro.
+3.- Se dispara el Startup command: cuyo objetivo es la ejecución del programa instalado previamente.
+
+Cuando se instala docker lo que instalas es un VM de Linux, cada que ejecutes Docker en la computadora estás ejecutando un VM de Linux.
+
+Comandos:
+*docker run hello-world 
+Donde:
+docker-> cliente instalado.
+run-> Crea y ejecuta el container.
+hello-world> Nombre de la imagen
+Procesos:
+1.- Realiza este comando tomando un snapshot o una copia de la estructura de la imagen hello-world.
+2.- Segmentar el disco duro y los recursos necesarios de hardware y software de tu computadora para este container.
+3.- Pegar el contenido de los archivos y directorios necesarios de software y hardware de tu computadora.
+4.- Ejecutar el container en la computadora.
+
+*docker run busybox echo Welcome Peter: echo es para imprimir un mensaje personalizado en nuestra computadora
+*docker run busybox ls: ls muestra la lista de directorios dentro de busy box 
+*docker ps: containers que se están ejecutando.
+*docker stop <containerid>: parar un contenedor que se está ejecutando
+*docker ps --all: mostrar todos los containers 
+*docker system prune: Elimina todos los containers e imagenes, etc
+*docker stop <containerId>: Se envía un mensaje de tipo SIGTERM, será recibido por el proceso del container con el objetivo de apagarlo, dando un tiempo para ver si existe un proceso intermedio ejecutandose en el container, este culmine, y apague el container. Ejemplo: Cuando se está trabajando en un documento en Word y se te acaba la batería de la pc entonces la computadora lanzará un evento para poder almacenar el documento.
+*docker kill <containerId>: Envía un msg de tipo SIGKILL, eliminara cualquier proceso y detendrá el container sin ningún tipo de demora.
+**Si el pasando 10 seg despues de ejecutar el comando stop, este ejecutará automáticamente el comando kill
+*docker pull redis: pull lo que hace es buscar la imagen dentro de la página hub.docker.com y la descarga
+*docker run -d -p 6379:6379 --name redis_container redis: -d imprime el log sobre este container, -p es el puerto y los siguientes son el puerto interno y externo, 
+*docker exec -it <container_id> <command>: Poder acceder al bash de mi container de la bd de redis, exec significa ejecutar otro comando que sería el -it (Unión de dos comandos -i -> Acceder al output del bash y el -t -> Escribir comandos en el bash de Linux), <command> representa el programa que va a ejecutar al bash en redis es sh (shell)
+*docker exec -it <container_id> <command>: Poder acceder al shell de mi container.
+*docker run -it busybox sh: este comando se utiliza en containers vacíos para realizar operaciones básicas en el shell
+
+
+
+Ciclo de vida de un container:
+1.- Crear container container: docker create <nombre_imagen>
+
+2.-Ejecutando container: docker start <container_id>
+
+---------------------------------------
+Crear una imagen:
+
+1.- Docker File: Crear archivo Dockerfile.
+2.- Docker Cliente: Enviar el archivo dockerfile al docker server.
+3.- Docker Server: revisa linea a linea el contenido del docker file y generará un archivo de tipo imagen que a futuro servirá para crear containers
+
+Crear un Dockerfile:
+1.- Especificar una imagen base.
+2.- Ejecutar comandos para instalar dependencias
+3.- Especificar comandos para inicializar un container basado en esta imagen
+
+________________________________________
+Instalación de SQL Server en Docker Container:
+docker run -e "ACCEPT-EULA=Y" -e "SA_PASSWORD=PedroCrTex2022$" -p 1433:1433 --name "sqlserverkike" -d mcr.microsoft.com/mssql/server
+
+_____________________________________________________
+Agregar carpeta models
+
+Agregar carpeta Data y el applicationDbContext
+
+
