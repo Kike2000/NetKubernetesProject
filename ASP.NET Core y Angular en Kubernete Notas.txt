@@ -93,5 +93,20 @@ _____________________________________________________
 Agregar carpeta models
 
 Agregar carpeta Data y el applicationDbContext
+_____________________________________________________
 
+Security JWT: 
+Tomar el request y verificar si tiene un token, entonces lo validará.
+El token es creado por el back
 
+ejemplo: Usuario inicia sesión, el back verifica los datos en la db, entonces creará un token de seguridad, el token será recibido y almacenado dentro del browser, por cada request dentro del header va a incluir el token que mi back le envío.
+
+Un token está compuesto de tres elementos:
+*Header - Algoritmo para encriptar el token
+*Payload- El cuerpo del token, Se agrega la data importante del usuario
+*Signature - Firma digital que valida que el token no ha sido manipulado fuera del server, Crea un key protected para proteger el token
+
+_____________________________________________
+Manejo de la sesión de usuario:
+Programación con tokens es serveless/Que no se crea una sesión en la memoria del servidor cada vez que un usuario se loggea
+El token debe de ser ligero para que viaje sin problemas entre el servidor y el cliente.

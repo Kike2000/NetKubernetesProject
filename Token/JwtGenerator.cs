@@ -3,8 +3,8 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using NetKubernetes.Models;
-using NetKubernetes.Token;
 
+namespace NetKubernetes.Token;
 public class JwtGenerator : IJwtGenerator
 {
     public string CrearToken(Usuario usuario)
