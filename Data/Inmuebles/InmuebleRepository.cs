@@ -1,4 +1,6 @@
+using System.Net;
 using Microsoft.AspNetCore.Identity;
+using NetKubernetes.Middleware;
 using NetKubernetes.Models;
 using NetKubernetes.Token;
 
@@ -20,6 +22,15 @@ public class InmuebleRepository : IInmuebleRepository
     {
         var usuario = await _userManager.FindByNameAsync(_sesion.ObtenerUsuarioSesion());
 
+        if (usuario is null)
+        {
+            throw new MiddlewareException(HttpStatusCode.Unauthorized, new { mensaje = "El usuario no es válido para hacer inserción." });
+        }
+
+        if (inmueble is null)
+        {
+            throw new MiddlewareException(HttpStatusCode.BadRequest, new { mensaje = "Datos de inmueble son incorrectos." });
+        }
         inmueble.FechaCreacion = DateTime.Now;
         inmueble.UsuarioId = Guid.Parse(usuario!.Id);
         _context.Inmueble!.Add(inmueble);
