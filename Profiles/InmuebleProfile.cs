@@ -10,5 +10,6 @@ public class InmuebleProfile : Profile
     {
         CreateMap<Inmueble, InmuebleResponseDTO>();
         CreateMap<InmuebleRequestDTO, Inmueble>();
+
     }
 }
