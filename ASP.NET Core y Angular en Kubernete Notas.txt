@@ -84,10 +84,10 @@ Crear un Dockerfile:
 1.- Especificar una imagen base.
 2.- Ejecutar comandos para instalar dependencias
 3.- Especificar comandos para inicializar un container basado en esta imagen
-
+PedroCrTex2022$
 ________________________________________
 Instalación de SQL Server en Docker Container:
-docker run -e "ACCEPT-EULA=Y" -e "SA_PASSWORD=PedroCrTex2022$" -p 1433:1433 --name "sqlserverkike" -d mcr.microsoft.com/mssql/server
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=VaxiDrez2005$" -p 1430:1433 --name "sqlserverkike" -d mcr.microsoft.com/mssql/server
 
 _____________________________________________________
 Agregar carpeta models
@@ -110,3 +110,15 @@ _____________________________________________
 Manejo de la sesión de usuario:
 Programación con tokens es serveless/Que no se crea una sesión en la memoria del servidor cada vez que un usuario se loggea
 El token debe de ser ligero para que viaje sin problemas entre el servidor y el cliente.
+_____________________________________________
+Middleware: Administrador de Excepciones, escucha cualquier excepcion en cualquier parte del programa.
+Toda transaccion es propensa a tener excepciones
+____________________________________________________
+Program.cs su acción es inyectar todos los componentes que trabajarán en tu proyecto.
+Imprimir todas las consultas de mi ef 
+builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+{
+    opt.LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information).EnableSensitiveDataLogging();
+
+________________________________________________
+instalar dotnet-ef dotnet tool install --global dotnet-ef --version 7.0.0 para migraciones
