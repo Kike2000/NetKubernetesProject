@@ -32,6 +32,4 @@ public class UsuarioController : ControllerBase
     {
         return await _repository.GetUsuario();
     }
-
-
 }

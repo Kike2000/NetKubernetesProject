@@ -1,5 +1,6 @@
 using System.Net;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using NetKubernetes.Middleware;
 using NetKubernetes.Models;
 using NetKubernetes.Token;
@@ -36,24 +37,24 @@ public class InmuebleRepository : IInmuebleRepository
         _context.Inmueble!.Add(inmueble);
     }
 
-    public void DeleteInmueble(int id)
+    public async Task DeleteInmueble(int id)
     {
-        var inmueble = _context.Inmueble!.FirstOrDefault(p => p.Id == id);
+        var inmueble = await _context.Inmueble!.FirstOrDefaultAsync(p => p.Id == id);
         _context.Inmueble!.Remove(inmueble!);
     }
 
-    public IEnumerable<Inmueble> GetAllInmuebles()
+    public async Task<IEnumerable<Inmueble>> GetAllInmuebles()
     {
-        return _context.Inmueble!.ToList();
+        return await _context.Inmueble!.ToListAsync();
     }
 
-    public Inmueble GetInmuebleById(int id)
+    public async Task<Inmueble> GetInmuebleById(int id)
     {
-        return _context.Inmueble!.FirstOrDefault(p => p.Id == id)!;
+        return await _context.Inmueble!.FirstOrDefaultAsync(p => p.Id == id)!;
     }
 
-    public bool SaveChanges()
+    public async Task<bool> SaveChanges()
     {
-        return _context.SaveChanges() >= 0;
+        return await _context.SaveChangesAsync() >= 0;
     }
 }

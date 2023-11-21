@@ -22,38 +22,39 @@ public class InmuebleController : ControllerBase
         _mapper = mapper;
     }
     [HttpGet]
-    public ActionResult<IEnumerable<InmuebleResponseDTO>> ObtenerInmuebles()
+    public async Task<ActionResult<IEnumerable<InmuebleResponseDTO>>> ObtenerInmuebles()
     {
-        var inmuebles = _repository.GetAllInmuebles();
+        var inmuebles = await _repository.GetAllInmuebles();
         return Ok(_mapper.Map<IEnumerable<InmuebleResponseDTO>>(inmuebles));
     }
 
     [HttpGet("{id}", Name = "GetInmuebleById")]
-    public ActionResult<InmuebleResponseDTO> GetInmuebleById(int id)
+    public async Task<ActionResult<InmuebleResponseDTO>> GetInmuebleById(int id)
     {
-        var inmueble = _repository.GetInmuebleById(id);
+        var inmueble = await _repository.GetInmuebleById(id);
         if (inmueble is null)
         {
             throw new MiddlewareException(HttpStatusCode.NotFound, new { mensaje = "Inmueble no fue encontrado." });
         }
         return Ok(_mapper.Map<InmuebleResponseDTO>(inmueble));
     }
+
     [HttpPost]
-    public ActionResult<InmuebleResponseDTO> CreateInmueble([FromBody] InmuebleRequestDTO request)
+    public async Task<ActionResult<InmuebleResponseDTO>> CreateInmueble([FromBody] InmuebleRequestDTO request)
     {
         var inmuebleModel = _mapper.Map<Inmueble>(request);
-        _repository.CreateInmueble(inmuebleModel);
-        _repository.SaveChanges();
+        await _repository.CreateInmueble(inmuebleModel);
+        await _repository.SaveChanges();
 
         var inmuebleResponse = _mapper.Map<InmuebleResponseDTO>(inmuebleModel);
         return CreatedAtRoute(nameof(GetInmuebleById), new { inmuebleResponse.Id }, inmuebleResponse);
     }
 
     [HttpDelete("{id}")]
-    public ActionResult DeleteInmueble(int id)
+    public async Task<ActionResult> DeleteInmueble(int id)
     {
-        _repository.DeleteInmueble(id);
-        _repository.SaveChanges();
+        await _repository.DeleteInmueble(id);
+        await _repository.SaveChanges();
         return Ok();
     }
 }
