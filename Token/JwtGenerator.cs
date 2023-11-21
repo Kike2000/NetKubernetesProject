@@ -16,7 +16,7 @@ public class JwtGenerator : IJwtGenerator
             new Claim("email", usuario.Email!)
         };
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Mi palabra secreta"));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Mi palabra se234235232342432423442353323432532345354545445342545545creta"));
 
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 

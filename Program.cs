@@ -60,7 +60,7 @@ builder.Services.AddScoped<IInmuebleRepository, InmuebleRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddSingleton(mapper);
 
-var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Mi palabra secreta"));
+var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Mi palabra se234235232342432423442353323432532345354545445342545545creta"));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(opt =>
 {
