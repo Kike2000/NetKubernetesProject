@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V45S8I9PzNWBsUTR9C0Q+zq9WwBspiY05tCCQI15JXeFw/wWp3WhOjXltLDvB69GDkVVGH+e+iH2Z+aBdg04+g==",
+  "dgSpecHash": "I3hCBa4dA4CcXEbX5folK/iMEae4asrzK9T/h5P1yEzGr3YWDG6dUVqBfFlZMFR/FOQjYyNALUmf24ntu4VUZw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pedro\\OneDrive\\Documentos\\GitHub\\NetKubernetesProject\\NetKubernetes.csproj",
+  "projectFilePath": "C:\\Users\\pedro\\OneDrive\\Documentos\\GitHub\\NetKubernetesProject\\WebApi\\NetKubernetes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pedro\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\pedro\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

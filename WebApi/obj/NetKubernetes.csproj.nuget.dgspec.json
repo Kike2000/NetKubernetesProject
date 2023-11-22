@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pedro\\OneDrive\\Documentos\\GitHub\\NetKubernetesProject\\NetKubernetes.csproj": {}
+    "C:\\Users\\pedro\\OneDrive\\Documentos\\GitHub\\NetKubernetesProject\\WebApi\\NetKubernetes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pedro\\OneDrive\\Documentos\\GitHub\\NetKubernetesProject\\NetKubernetes.csproj": {
+    "C:\\Users\\pedro\\OneDrive\\Documentos\\GitHub\\NetKubernetesProject\\WebApi\\NetKubernetes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Documentos\\GitHub\\NetKubernetesProject\\NetKubernetes.csproj",
+        "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Documentos\\GitHub\\NetKubernetesProject\\WebApi\\NetKubernetes.csproj",
         "projectName": "NetKubernetes",
-        "projectPath": "C:\\Users\\pedro\\OneDrive\\Documentos\\GitHub\\NetKubernetesProject\\NetKubernetes.csproj",
+        "projectPath": "C:\\Users\\pedro\\OneDrive\\Documentos\\GitHub\\NetKubernetesProject\\WebApi\\NetKubernetes.csproj",
         "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pedro\\OneDrive\\Documentos\\GitHub\\NetKubernetesProject\\obj\\",
+        "outputPath": "C:\\Users\\pedro\\OneDrive\\Documentos\\GitHub\\NetKubernetesProject\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
